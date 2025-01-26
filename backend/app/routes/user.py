@@ -3,9 +3,8 @@ from app.db.helpers import get_user, insert_user, update_user_city
 from app.utils.authentication import get_user_identifiers
 from app.utils.dependencies import require_auth
 from corbado_python_sdk import UserEntity
-from sqlalchemy.orm import Session
-
 from fastapi import APIRouter, Depends, HTTPException, Request
+from sqlalchemy.orm import Session
 
 router = APIRouter()
 
@@ -31,6 +30,7 @@ async def info(user: UserEntity = Depends(require_auth), db: Session = Depends(g
         },
         "identifiers": user_identifiers.identifiers
     }
+
 
 
 @router.post("/city")

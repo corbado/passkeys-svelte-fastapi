@@ -25,6 +25,7 @@
 		Corbado.mountAuthUI(signupDiv, {
 			initialBlock: 'signup-init',
 			onLoggedIn() {
+				console.log('User logged in');
 				// do nothing here. We have to wait for a backend response
 				// to check whether the user has gone through onboarding already.
 				// The backend call is made in the user store.

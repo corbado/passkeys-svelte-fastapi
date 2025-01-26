@@ -25,4 +25,5 @@ async def attach_user(request: Request, call_next):
     return response
 
 
+
 app.include_router(api_router, prefix="/api")

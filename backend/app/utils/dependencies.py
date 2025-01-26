@@ -1,5 +1,5 @@
-from fastapi import HTTPException, Request
 from corbado_python_sdk import UserEntity
+from fastapi import HTTPException, Request
 
 
 def require_auth(request: Request) -> UserEntity:

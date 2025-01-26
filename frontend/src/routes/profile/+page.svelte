@@ -5,14 +5,15 @@
 
 	let passkeyListDiv: HTMLDivElement;
 
+	userStore.onCorbadoLoaded(() => {
+		Corbado.mountPasskeyListUI(passkeyListDiv);
+	});
+
 	$effect(() => {
 		if (userStore.userInfo.status === 'not-authenticated') {
 			goto('/login');
 			return;
 		}
-	});
-	userStore.onCorbadoLoaded(() => {
-		Corbado.mountPasskeyListUI(passkeyListDiv);
 	});
 
 	let externalUserInfo = $derived(

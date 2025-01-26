@@ -108,12 +108,13 @@ class UserStore {
 		}
 	}
 
-	public onCorbadoLoaded(fn: () => void | Promise<void>) {
+	onCorbadoLoaded = (fn: () => void | Promise<void>) => {
 		this.corbadoLoadPromise.then(fn);
-	}
+	};
+
 
 	// caller is expected to handle errors
-	public async updateUserCity(city: string) {
+	async updateUserCity(city: string) {
 		if (this.externalUserInfo.status !== 'success') {
 			throw new Error('User info not loaded');
 		}

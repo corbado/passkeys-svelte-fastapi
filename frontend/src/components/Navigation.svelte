@@ -9,7 +9,7 @@
 	}
 
 	function onLogout() {
-		userStore.onCorbadoLoaded(() => Corbado.logout());
+		Corbado.logout();
 		goto('/');
 	}
 </script>
