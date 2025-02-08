@@ -1,8 +1,18 @@
 from typing import Optional
 
 from app.core.config import Config as Settings
-from corbado_python_sdk import Config, CorbadoSDK, UserEntity
+import os
 from corbado_python_sdk.generated.models import IdentifierList
+from corbado_python_sdk import Config, CorbadoSDK, UserEntity
+
+config = Config(
+    project_id=os.environ.get('CORBADO_PROJECT_ID'),
+    api_secret=os.environ.get('CORBADO_API_SECRET'),
+    frontend_api=os.environ.get('CORBADO_FRONTEND_API'),
+    backend_api=os.environ.get('CORBADO_BACKEND_API')
+)
+sdk = CorbadoSDK(config=config)
+
 
 config = Config(
     project_id=Settings.CORBADO_PROJECT_ID,

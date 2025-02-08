@@ -33,7 +33,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"@corbado/types": "^2.12.0",
-		"@corbado/web-js": "^2.19.0"
+		"@corbado/types": "^3.0.0",
+		"@corbado/web-js": "^3.0.0-alpha.0"
 	}
 }
