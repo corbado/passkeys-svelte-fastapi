@@ -8,6 +8,8 @@ Svelte and FastAPI. The following packages are being used:
 - [Corbado web-js](https://github.com/corbado/javascript/tree/develop/packages/web-js)
 - [Corbado Python](https://github.com/corbado/corbado-python)
 
+[![integration-guides](https://github.com/user-attachments/assets/7859201b-a345-4b68-b336-6e2edcc6577b)](https://app.corbado.com/integration-guides/svelte-fastapi)
+
 ## File structure
 
 - `frontend`: Separate directory for the Svelte frontend
