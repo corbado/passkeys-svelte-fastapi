@@ -1,4 +1,5 @@
 import Corbado from '@corbado/web-js';
+import { sendEvent, TelemetryEventType } from '@corbado/shared-util';
 import englishTranslations from '$lib/corbado-translation';
 
 export type UserInfo =
@@ -57,6 +58,17 @@ class UserStore {
 			theme: 'cbo-custom-styles',
 			customTranslations: { en: englishTranslations }
 		});
+
+		sendEvent({
+			type: TelemetryEventType.EXAMPLE_APPLICATION_OPENED,
+			payload: {
+				exampleName: 'corbado/passkeys-svelte-fastapi'
+			},
+			sdkVersion: '3.1.0',
+			sdkName: 'Javascript SDK',
+			identifier: import.meta.env.VITE_CORBADO_PROJECT_ID
+		});
+
 		this.onCorbadoLoaded(() => {
 			// we don't have to worry about unsubscribing because the store
 			// lives for the lifetime of the app
