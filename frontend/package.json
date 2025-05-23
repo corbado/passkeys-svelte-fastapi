@@ -35,6 +35,6 @@
 	},
 	"dependencies": {
 		"@corbado/types": "^3.0.0",
-		"@corbado/web-js": "^3.0.4"
+		"@corbado/web-js": "^3.1.0"
 	}
 }
