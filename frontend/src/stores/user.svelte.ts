@@ -52,22 +52,29 @@ class UserStore {
 	private corbadoLoadPromise: Promise<void>;
 
 	constructor() {
-		this.corbadoLoadPromise = Corbado.load({
-			projectId: import.meta.env.VITE_CORBADO_PROJECT_ID,
-			darkMode: 'on',
-			theme: 'cbo-custom-styles',
-			customTranslations: { en: englishTranslations }
-		});
-
-		sendEvent({
-			type: TelemetryEventType.EXAMPLE_APPLICATION_OPENED,
-			payload: {
-				exampleName: 'corbado/passkeys-svelte-fastapi'
+		this.corbadoLoadPromise = Corbado.load(
+			{
+				projectId: import.meta.env.VITE_CORBADO_PROJECT_ID,
+				darkMode: 'on',
+				theme: 'cbo-custom-styles',
+				customTranslations: { en: englishTranslations }
 			},
-			sdkVersion: '3.1.0',
-			sdkName: 'Javascript SDK',
-			identifier: import.meta.env.VITE_CORBADO_PROJECT_ID
-		});
+			import.meta.env.VITE_CORBADO_TELEMETRY_DISABLED === 'true'
+				? false
+				: undefined
+		);
+
+		if (import.meta.env.VITE_CORBADO_TELEMETRY_DISABLED !== 'true') {
+			sendEvent({
+				type: TelemetryEventType.EXAMPLE_APPLICATION_OPENED,
+				payload: {
+					exampleName: 'corbado/passkeys-svelte-fastapi'
+				},
+				sdkVersion: '3.1.0',
+				sdkName: 'React SDK',
+				identifier: import.meta.env.VITE_CORBADO_PROJECT_ID
+			});
+		}
 
 		this.onCorbadoLoaded(() => {
 			// we don't have to worry about unsubscribing because the store
